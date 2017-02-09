@@ -1,4 +1,8 @@
-/* This is where we will code this bologna*/
+/* Thomas Back, Leia Trice, Vince Messenger
+   P2P Chat App
+   14 Feb. 2017
+*/
+
 class Node{
 	Node next;
 	String ip;
