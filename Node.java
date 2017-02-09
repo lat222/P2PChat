@@ -15,6 +15,10 @@ class Node{
 
 	}
 
+	void read(){
+		
+	}
+
 	void message(String message){
 
 	}
