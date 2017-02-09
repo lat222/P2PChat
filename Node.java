@@ -23,5 +23,9 @@ class Node{
 		
 	}
 
+	public static void main(){
+		//todo
+	}
+
 	
 }
