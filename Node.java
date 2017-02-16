@@ -3,33 +3,16 @@
    14 Feb. 2017
 */
 
+import java.io.*;
+
 class Node{
-	Static String next_node
-	Static String ip;
+	public static String next_node;
 	
-	public Node(String IP_toConnectTo){
-		//Connect to other IP here
+	// note: optionally accept IP address as command line arg
+	//       1) if they pass it in, connect to that IP
+	//       2) if they don't start new server
+
+	public static void main(String[] args) throws IOException{
+		new ReadThread().start();
 	}
-
-	void connectToNext(){
-
-	}
-
-	void read(){
-		
-	}
-
-	void message(String message){
-
-	}
-
-	void delete(){
-		
-	}
-
-	public static void main(){
-		//todo
-	}
-
-	
 }
