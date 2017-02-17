@@ -13,6 +13,8 @@ class Node{
 	//       2) if they don't start new server
 
 	public static void main(String[] args) throws IOException{
+		// check args for IP address, connect to it if so
+
 		new ReadThread().start();
 	}
 }

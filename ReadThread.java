@@ -37,7 +37,7 @@ public class ReadThread extends Thread{
                 System.out.println("Just received packet from " + packet.getSocketAddress());
                 System.out.println("Text: " + new String(buffer));
 
-                // this code sets
+                // this code sets the next_node value to the IP that sent packet
                 Node.next_node = packet.getAddress().getHostName().toString();
                 System.out.println("next_node: " + Node.next_node);
                 
