@@ -2,8 +2,8 @@ import java.net.*;
 import java.io.*;
 
 /**
-*
-* @author vjm36
+* Vincent Messenger, Thomas Back, Leia Trice
+* 
 */
 public class ReadThread extends Thread{
    private Socket read_socket;  // client socket
@@ -25,7 +25,11 @@ public class ReadThread extends Thread{
            DatagramSocket read_socket = new DatagramSocket(port_num);
                )
        {
-            System.out.println("hi");
+            // check if user passed in IP to connect to, connect to self if not
+            if (Node.next_node == ""){
+                Node.next_node = InetAddress.getLocalHost().getHostAddress().toString();
+            }
+            
             // start receiving packets
             while(true) {
                 // receive packet
