@@ -29,6 +29,7 @@ class Node{
 			Node.next_node = args[1];
 		}
 
+		// start up io threads
 		new ReadThread().start();
 		new WriteThread().start();
 
