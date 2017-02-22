@@ -8,7 +8,7 @@ import static java.lang.System.in;
 */
 public class WriteThread extends Thread{
    private Socket write_socket;  // client socket
-   private int port_num = 8081;
+   private int port_num = Node.write_port;
    
    public WriteThread() throws IOException{
        super();  // call super constructor
@@ -18,9 +18,8 @@ public class WriteThread extends Thread{
    public void run() {
 
         // create stuffs
-        byte[] buffer = new byte[1024];
         DatagramPacket packet = null;
-        String inString;
+        String inString, toSend;
 
        
         // try to create io streams
@@ -28,13 +27,23 @@ public class WriteThread extends Thread{
             DatagramSocket write_socket = new DatagramSocket(port_num);
                 )
         {
-                System.out.println("hi");
                 BufferedReader stdin =  new BufferedReader(new InputStreamReader(System.in));
 
                 // start listening for keyboard input
                 while((inString = stdin.readLine()) != null){
-                    packet = new DatagramPacket(inString.getBytes(), inString.getBytes().length, InetAddress.getByName(Node.next_node), 8080);
+
+                    // check what type of message user is trying to send, build message with protocol
+                    if (inString == "L"){
+                        toSend = "Fake";
+                        //
+                    }
+                    else {
+                        toSend = "M " + InetAddress.getLocalHost().getHostAddress().toString() + " " + inString;
+                    }
+                    // send out packet
+                    packet = new DatagramPacket(toSend.getBytes(), toSend.getBytes().length, InetAddress.getByName(Node.next_node), Node.send_port);
                     write_socket.send(packet);
+
                 }
         
         } catch (IOException e) {

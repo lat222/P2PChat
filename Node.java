@@ -8,6 +8,8 @@ import java.io.*;
 class Node{
 	public static String next_node = "";
 	public static String user_name;
+	public static int send_port = 8080;
+	public static int write_port = 8081;
 	
 	// note: optionally accept IP address as command line arg
 	//       1) if they pass it in, connect to that IP
